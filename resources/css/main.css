@@ -1,0 +1,37 @@
+/* src/main.css */
+
+/* 1. Import Font Poppins (untuk theme) */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700,800&display=swap'); 
+
+/* 2. Directive Wajib: Mengimpor semua styling Tailwind */
+@import "tailwindcss"; 
+
+/* 3. Konfigurasi Kustom (@theme) */
+@theme {
+  --font-primary: "Poppins", sans-serif;
+  
+  --color-primary: #121C28; 
+  --color-secondary: #4A90E2; 
+  --color-text-light: #A0AEC0; 
+}
+
+/* 4. Animasi Custom (untuk Cinematic Glow) */
+@keyframes cinematic-hue-shift {
+  0% { box-shadow: 0 0 40px rgba(18, 28, 40, 0.8), 0 0 15px rgba(0, 100, 200, 0.5); }
+  50% { box-shadow: 0 0 70px rgba(74, 144, 226, 0.7), 0 0 30px rgba(255, 255, 255, 0.4); }
+  100% { box-shadow: 0 0 40px rgba(18, 28, 40, 0.8), 0 0 15px rgba(0, 100, 200, 0.5); }
+}
+
+.title-glow:hover {
+  animation: rgb-lightning 0.8s infinite linear; 
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9); 
+}
+
+@keyframes rgb-lightning {
+  /* Disederhanakan untuk menghindari error, fokus pada transisi cepat */
+  0%   { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.9)); }
+  25%  { filter: drop-shadow(0 0 7px rgba(0, 0, 255, 1)); }
+  50%  { filter: drop-shadow(0 0 10px rgba(255, 255, 0, 1)); }
+  75%  { filter: drop-shadow(0 0 9px rgba(0, 0, 255, 1)); }
+  100% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.9)); }
+}
