@@ -52,7 +52,7 @@ class ProductController extends Controller
     }
 
     // READ DETAIL: GET /products/{id} (Web) & GET /api/products/{id} (API)
-    public function show(Request $request, $id)
+    public function show(Request $request, int|string $id)
     {
         $product = Product::find($id);
 
@@ -75,7 +75,7 @@ class ProductController extends Controller
     }
 
     // FORM EDIT: GET /products/{id}/edit (Web)
-    public function edit($id)
+    public function edit(int|string $id)
     {
         $product = Product::findOrFail($id);
 
@@ -83,7 +83,7 @@ class ProductController extends Controller
     }
 
     // UPDATE: PUT/PATCH /products/{id} (Web) & PUT/PATCH /api/products/{id} (API)
-    public function update(Request $request, $id)
+    public function update(Request $request, int|string $id)
     {
         $product = Product::find($id);
 
@@ -118,7 +118,7 @@ class ProductController extends Controller
     }
 
     // DELETE: DELETE /products/{id} (Web) & DELETE /api/products/{id} (API)
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, int|string $id)
     {
         $product = Product::find($id);
 
