@@ -3,9 +3,9 @@
 namespace App\Models;
 
 class Konveksi extends Product {
-    private $minOrder; 
+    private $minOrder;
 
-    public function __construct($name, $price, $sku, $minOrder) {
+    public function __construct($name = null, $price = null, $sku = null, $minOrder = null) {
         parent::__construct($name, $price, $sku);
         $this->minOrder = $minOrder;
     }
@@ -14,7 +14,7 @@ class Konveksi extends Product {
     public function getMinOrder() {
         return $this->minOrder;
     }
-    
+
     public function __destruct() {
         // Logika cleanup
     }
