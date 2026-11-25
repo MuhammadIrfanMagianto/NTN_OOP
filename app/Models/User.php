@@ -8,8 +8,9 @@ namespace App\Models;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     protected $table = 'users';
 
@@ -24,6 +25,17 @@ class User extends Authenticatable
     public function getRememberTokenName()
     {
         return '';
+    }
+
+    // Method wajib JWTSubject (Week 11)
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 
     public static function usernameExists($username)
